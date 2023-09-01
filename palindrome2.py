@@ -1,17 +1,24 @@
-check_another = "yes"
-
-while check_another == "yes":
+check="y"
+while check=="y":
     my_string = input("Enter a string: ")
     my_string_lower = my_string.lower()
-    rev_string = ""
+    len_string = len(my_string_lower)
 
-    for char in my_string_lower:
-        rev_string = char + rev_string
-    
-    if my_string_lower == rev_string:
+    i=0
+    j=len_string - 1
+
+    for i in range(len_string):
+        if my_string_lower[i] == my_string_lower[j]:
+            i=i+1
+            j=j-1
+            flag=1
+        else:
+            flag=0
+            break
+
+    if flag==1:
         print("Palindrome")
-    else:
-        print("Not a Palindrome") 
+    if flag==0:
+        print("Not a Palindrome")
 
-    check_another = input("Enter yes if you want to check another word? ")   
-
+    check = input("Enter y if you want to check another word? ")       
